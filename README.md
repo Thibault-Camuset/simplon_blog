@@ -7,11 +7,11 @@
 
 - Version en ligne: (A venir)
 
-- MCD: (A venir)
+- MCD: https://app.lucidchart.com/invitations/accept/38642813-67f0-42da-9401-4b58d6c3dcff
 
 - Maquette: (A venir)
 
-- Gestion de projet: (A venir)
+- Gestion de projet: https://trello.com/b/v4usphQ9/simplon-projet-blog
 
 ---
 
