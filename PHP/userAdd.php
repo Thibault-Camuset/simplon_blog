@@ -12,7 +12,7 @@ require('Connexion.php');
     <meta name="author" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/style.css">
     <title></title>
 </head>
 <body>
@@ -31,7 +31,15 @@ $manager = new UserManager();
 $manager->addUser($email, $password, $firstname, $lastname, $usertype);
 
 ?>
-<p>Utilisateur bien ajouté!</p>
+
+<div id="user-added-finish">
+<p id="user-added-confirm">Utilisateur bien ajouté!</p>
+<p>Vous allez être redirigé vers la page d'accueil dans quelques secondes, sinon, cliquez <a href="../index.php">ICI</a> pour être redirigé</p>
+</div>
+
+<?php 
+  header( "refresh:5; url=../index.php" ); 
+?>
 
 </body>
 </html>
