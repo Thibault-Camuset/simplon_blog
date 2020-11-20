@@ -1,0 +1,143 @@
+
+/* Page d'accueil */
+
+#content-home {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#goto-login-form {
+    border: 1px black solid;
+    text-decoration:none;
+    padding:2vh 1vw;
+    color:black;
+    font-weight:bold;
+    font-size:16px;
+}
+
+#goto-login-form:hover {
+    background-color:black;
+    color:white;
+}
+
+/* Page de Login */
+
+#login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display:flex;
+    flex-direction:column;
+}
+
+#user-register-submit {
+    border: 1px black solid;
+    padding:2vh 1vw;
+    background-color:white;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+}
+
+#user-register-submit:hover {
+    background-color:black;
+    color:white;
+}
+
+#goto-add-user {
+    border: 1px black solid;
+    text-decoration:none;
+    padding:2vh 1vw;
+    color:black;
+    font-weight:bold;
+    font-size:16px;
+}
+
+#goto-add-user:hover {
+    background-color:black;
+    color:white;
+}
+
+#input-username, #input-password {
+    margin:1vmin;
+    border:1px solid black;
+    padding:1vh 1vw;
+}
+
+#input-username:focus::placeholder, #input-password:focus::placeholder {
+    color:transparent;
+}
+
+#login-flex-row {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    margin-top:2vh;
+}
+
+#connect-title {
+    margin:auto;
+    margin-bottom:2vh;
+}
+
+
+
+
+/* Page Register */
+
+#add-user-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display:flex;
+    flex-direction:column;
+}
+
+
+#radio-register-role {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    margin: 2vh 0;
+}
+
+#user-email-input, #password-input, #firstname-input, #lastname-input {
+    margin:1vmin;
+    border:1px solid black;
+    padding:1vh 1vw;
+}
+
+#form-add-submit {
+    margin:1vmin;
+    border:1px solid black;
+    padding:1vh 0.5vw;
+    background-color:white;
+    font-weight:bold;
+    font-size:14px;
+}
+
+#form-add-submit:hover {
+    background-color:black;
+    color:white;
+}
+
+
+
+
+/* Page Validation Ajout Utilisateur */
+
+#user-added-finish {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#user-added-confirm {
+    font-size:18px;
+    font-weight:bold;
+}
