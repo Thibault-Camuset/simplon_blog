@@ -1,9 +1,3 @@
-<?php 
-
-require('Connexion.php');
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,7 +12,7 @@ require('Connexion.php');
 <body>
 
 <?php
-
+$username = $_POST['user-name-input'];
 $email = $_POST['user-email-input'];
 $password = $_POST['password-input'];
 $firstname = $_POST['firstname-input'];
@@ -28,8 +22,7 @@ $usertype = $_POST['user-type-input'];
 require('UserManager.php');
 
 $manager = new UserManager();
-$manager->addUser($email, $password, $firstname, $lastname, $usertype);
-
+$manager->addUser($username, $email, $password, $firstname, $lastname, $usertype);
 ?>
 
 <div id="user-added-finish">
@@ -37,9 +30,7 @@ $manager->addUser($email, $password, $firstname, $lastname, $usertype);
 <p>Vous allez être redirigé vers la page d'accueil dans quelques secondes, sinon, cliquez <a href="../index.php">ICI</a> pour être redirigé</p>
 </div>
 
-<?php 
-  header( "refresh:5; url=../index.php" ); 
-?>
+<?php header( "refresh:3; url=../index.php" ); ?>
 
 </body>
 </html>

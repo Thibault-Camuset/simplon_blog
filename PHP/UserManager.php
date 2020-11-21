@@ -1,4 +1,7 @@
-<?php
+<!-- Classe UserManager, qui servira à faire les requêtes relatives à l'ajout, la suppression, et la vérification des informations relatives aux utilisateurs, comme ajouter
+un nouvel utilisateur, en supprimer un, ou bien pour un utilisateur existant tentant de se connecter au blog. -->
+<?php 
+require('Connexion.php');
 
 class UserManager {
     public $newconnexion;
@@ -7,18 +10,52 @@ class UserManager {
         $this->newconnexion = new Connexion();
     }
 
-    public function addUser($email, $password, $firstName, $lastName, $userType) {
+    // Fonction servant à valider le formulaire d'ajout de nouvel utilisateur
+    public function addUser($userName, $email, $password, $firstName, $lastName, $userType) {
 
-        if($userType == "user") {
+        // On vérifie et convertit le type d'utilisateur ici
+        if($userType == "admin") {
             $actualusertype = 1;
-        } else {
+        } else if($userType == "redac") {
             $actualusertype = 2;
+        } else {
+            $actualusertype = 3;
         }
 
-        $request = $this->newconnexion->connexion->prepare('INSERT INTO users(userEmail, userPassword, userFirstName, userLastName, createdAt, enabled, roleId) VALUES (?, ?, ?, ?, ?, ?, ?)');
-        $request->execute([$email, $password, $firstName, $lastName, date('Y-m-d H:i:s'), 1, $actualusertype]);
+        // Requête PDO en deux temps, pour éviter les injections SQL. Ici, on utilise une méthode hash sur le mot de passe, avec des clés secrètes dans le fichier config, par sécurité.
+        $request = $this->newconnexion->connexion->prepare('INSERT INTO users(userName, userEmail, userPassword, userFirstName, userLastName, createdAt, roleId) VALUES (?, ?, ?, ?, ?, ?, ?)');
+        $request->execute([$userName, $email, hash('sha256', Config::getSaltKey1().$password.Config::getSaltKey2()), $firstName, $lastName, date('Y-m-d H:i:s'), $actualusertype]);
     }
 
-}
 
+
+
+    public $errormessage;
+
+
+    // Fonction pour vérifier l'utilisateur/mot de passe de la personne qui essaie de se connecter.
+    public function checkUser($userName, $password) {
+
+        $request = $this->newconnexion->connexion->prepare('SELECT * FROM users WHERE userName = ? AND userPassword = ?');
+        $request->execute([$userName, hash('sha256', Config::getSaltKey1().$password.Config::getSaltKey2())]);
+        $result = $request->fetch();
+
+        if($result != false) {
+            $_SESSION['userName'] = $result['userName'];
+            header( "refresh:1; url=./index.php" ); 
+        } else {
+            $_SESSION['errorMessage'] = "Nom d'utilisateur ou mot de passe incorrect";
+            header("location:./login.php"); 
+        }
+    }
+
+    // public function setErrorMessage($actualerrormessage) {
+    //     $this->errormessage = $actualerrormessage;
+    // }
+
+    // public function getErrorMessage() {
+    //     return $this->errormessage;
+    // }
+
+}
 ?>
