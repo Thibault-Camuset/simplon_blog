@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +15,24 @@
 </head>
 <body>
 
+<?php
+if(isset ($SESSION_['userName'])) {
+
+?>
+
+<p>Bienvenue <?php echo $_SESSION['userName']; ?></p>
+
+<?php
+} else {
+?>
+
 <div id="content-home">
 <a id="goto-login-form" href="login.php">Se connecter/s'inscrire</a>
 </div>
+
+<?php
+}
+?>
 
 </body>
 </html>

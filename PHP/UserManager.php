@@ -1,4 +1,6 @@
-<?php
+<?php 
+
+require('Connexion.php');
 
 class UserManager {
     public $newconnexion;
@@ -16,7 +18,7 @@ class UserManager {
         }
 
         $request = $this->newconnexion->connexion->prepare('INSERT INTO users(userEmail, userPassword, userFirstName, userLastName, createdAt, enabled, roleId) VALUES (?, ?, ?, ?, ?, ?, ?)');
-        $request->execute([$email, $password, $firstName, $lastName, date('Y-m-d H:i:s'), 1, $actualusertype]);
+        $request->execute([$email, hash('sha256', Config::getSaltKey1().$password.Config::getSaltKey2()), $firstName, $lastName, date('Y-m-d H:i:s'), 1, $actualusertype]);
     }
 
 }

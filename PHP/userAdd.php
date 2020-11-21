@@ -1,9 +1,3 @@
-<?php 
-
-require('Connexion.php');
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,7 +12,6 @@ require('Connexion.php');
 <body>
 
 <?php
-
 $email = $_POST['user-email-input'];
 $password = $_POST['password-input'];
 $firstname = $_POST['firstname-input'];
@@ -29,7 +22,6 @@ require('UserManager.php');
 
 $manager = new UserManager();
 $manager->addUser($email, $password, $firstname, $lastname, $usertype);
-
 ?>
 
 <div id="user-added-finish">
