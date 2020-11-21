@@ -12,6 +12,7 @@
 <body>
 
 <?php
+$username = $_POST['user-name-input'];
 $email = $_POST['user-email-input'];
 $password = $_POST['password-input'];
 $firstname = $_POST['firstname-input'];
@@ -21,7 +22,7 @@ $usertype = $_POST['user-type-input'];
 require('UserManager.php');
 
 $manager = new UserManager();
-$manager->addUser($email, $password, $firstname, $lastname, $usertype);
+$manager->addUser($username, $email, $password, $firstname, $lastname, $usertype);
 ?>
 
 <div id="user-added-finish">

@@ -10,24 +10,20 @@
 </head>
 <body>
 
-<?php
-if(isset ($SESSION_['userName'])) {
+<div id="content-home">
 
-?>
+<?php if(isset($_SESSION['userName'])) { ?>
 
 <p>Bienvenue <?php echo $_SESSION['userName']; ?></p>
 
-<?php
-} else {
-?>
+<a id="goto-deconnect" href="deconnect.php">Se déconnecter</a>
 
-<div id="content-home">
+<?php } else { ?>
+
 <a id="goto-login-form" href="login.php">Se connecter/s'inscrire</a>
-</div>
 
-<?php
-}
-?>
+<?php } ?>
+</div>
 
 </body>
 </html>

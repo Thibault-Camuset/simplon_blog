@@ -105,7 +105,7 @@
     margin: 2vh 0;
 }
 
-#user-email-input, #password-input, #firstname-input, #lastname-input {
+#user-name-input, #user-email-input, #password-input, #firstname-input, #lastname-input {
     margin:1vmin;
     border:1px solid black;
     padding:1vh 1vw;

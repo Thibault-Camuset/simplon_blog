@@ -24,7 +24,7 @@ class Config {
 
     // Information de connexion à la base de données. 
     private static $dbHost = "localhost";
-    private static $dbName = "blog";
+    private static $dbName = "simplon_blog";
     private static $dbUser = "root";
     private static $dbPassword = "";
 
