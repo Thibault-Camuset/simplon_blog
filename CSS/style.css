@@ -22,6 +22,9 @@
     color:white;
 }
 
+
+
+
 /* Page de Login */
 
 #login-form {
@@ -83,7 +86,11 @@
     margin-bottom:2vh;
 }
 
-
+#error-message {
+    color:red;
+    font-size:16px;
+    font-weight:bold;
+}
 
 
 /* Page Register */

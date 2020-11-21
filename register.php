@@ -20,8 +20,9 @@
     <input type="text" id="firstname-input" name="firstname-input" placeholder="Prénom"/>
     <input type="text" id="lastname-input" name="lastname-input" placeholder="Nom de Famille"/>
     <div id="radio-register-role">
-        <label>User<input type="radio" id="normal-user" name="user-type-input" value="user" checked/></label>
         <label>Admin<input type="radio" id="admin-user" name="user-type-input" value="admin" /></label>
+        <label>Rédacteur<input type="radio" id="redac-user" name="user-type-input" value="redac" /></label>
+        <label>Utilisateur<input type="radio" id="normal-user" name="user-type-input" value="user" checked/></label>
     </div>
     <input type="submit" id="form-add-submit" value="Valider"/>
 </form>

@@ -14,10 +14,12 @@ class UserManager {
     public function addUser($userName, $email, $password, $firstName, $lastName, $userType) {
 
         // On vérifie et convertit le type d'utilisateur ici
-        if($userType == "user") {
+        if($userType == "admin") {
             $actualusertype = 1;
-        } else {
+        } else if($userType == "redac") {
             $actualusertype = 2;
+        } else {
+            $actualusertype = 3;
         }
 
         // Requête PDO en deux temps, pour éviter les injections SQL. Ici, on utilise une méthode hash sur le mot de passe, avec des clés secrètes dans le fichier config, par sécurité.
@@ -26,21 +28,34 @@ class UserManager {
     }
 
 
+
+
+    public $errormessage;
+
+
     // Fonction pour vérifier l'utilisateur/mot de passe de la personne qui essaie de se connecter.
     public function checkUser($userName, $password) {
 
         $request = $this->newconnexion->connexion->prepare('SELECT * FROM users WHERE userName = ? AND userPassword = ?');
         $request->execute([$userName, hash('sha256', Config::getSaltKey1().$password.Config::getSaltKey2())]);
+        $result = $request->fetch();
 
-
-        // Si il y a un résultat/correspondance, et donc que le mot de passe et le login est bon, on le met dans une session et l'utilisateur est logué.
-        $user = $request->fetch();
-        $_SESSION['userName'] = $user['userName'];
-        $_SESSION['userPassword'] = $user['userPassword'];
-
-        // Sinon, on affiche un message d'erreur, et on invite l'utilisateur à essayer à nouveau.
-
+        if($result != false) {
+            $_SESSION['userName'] = $result['userName'];
+            header( "refresh:1; url=./index.php" ); 
+        } else {
+            $_SESSION['errorMessage'] = "Nom d'utilisateur ou mot de passe incorrect";
+            header("location:./login.php"); 
+        }
     }
+
+    // public function setErrorMessage($actualerrormessage) {
+    //     $this->errormessage = $actualerrormessage;
+    // }
+
+    // public function getErrorMessage() {
+    //     return $this->errormessage;
+    // }
 
 }
 ?>

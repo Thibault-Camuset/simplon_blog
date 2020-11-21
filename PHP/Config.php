@@ -3,6 +3,8 @@ mais aussi les méthodes utilisées pour protéger les mots de passes des utilis
 
 En tant normal, ce fichier Config.php ne serait pas partagé publiquement sur un repo Git, ou alors vierge et non rempli, mais ici, pour l'exercice, il le sera! -->
 
+
+
 <?php
 class Config {
 

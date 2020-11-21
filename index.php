@@ -12,17 +12,18 @@
 
 <div id="content-home">
 
-<?php if(isset($_SESSION['userName'])) { ?>
+    <?php if(isset($_SESSION['userName'])) { ?>
 
-<p>Bienvenue <?php echo $_SESSION['userName']; ?></p>
+    <p>Bienvenue <?php echo $_SESSION['userName']; ?></p>
 
-<a id="goto-deconnect" href="deconnect.php">Se déconnecter</a>
+    <a id="goto-deconnect" href="deconnect.php">Se déconnecter</a>
 
-<?php } else { ?>
+    <?php } else { ?>
 
-<a id="goto-login-form" href="login.php">Se connecter/s'inscrire</a>
+    <a id="goto-login-form" href="login.php">Se connecter/s'inscrire</a>
 
-<?php } ?>
+    <?php } ?>
+    
 </div>
 
 </body>
