@@ -1,8 +1,4 @@
-<?php
-
-session_start();
-
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +16,7 @@ session_start();
     <input type="text" id="input-username" placeholder="Username"/>
     <input type="text" id="input-password" placeholder="Password"/>
     <div id="login-flex-row">
-        <a href="ajout-user.php" id="goto-add-user">Register</a>
+        <a href="register.php" id="goto-add-user">Register</a>
         <input type="submit" id="user-register-submit" value="Log-In"/>
     </div>
 </form>
