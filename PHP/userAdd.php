@@ -30,9 +30,7 @@ $manager->addUser($username, $email, $password, $firstname, $lastname, $usertype
 <p>Vous allez être redirigé vers la page d'accueil dans quelques secondes, sinon, cliquez <a href="../index.php">ICI</a> pour être redirigé</p>
 </div>
 
-<?php 
-  header( "refresh:5; url=../index.php" ); 
-?>
+<?php header( "refresh:3; url=../index.php" ); ?>
 
 </body>
 </html>

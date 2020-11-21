@@ -18,7 +18,7 @@ if (isset($_POST['input-username'])) {
     $manager = new UserManager();
     $manager->checkUser($_POST['input-username'], $_POST['input-password']);
 
-    header( "refresh:2; url=./index.php" ); 
+    header( "refresh:1; url=./index.php" ); 
 
 } else {  
 ?>

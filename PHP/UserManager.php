@@ -1,8 +1,6 @@
 <!-- Classe UserManager, qui servira à faire les requêtes relatives à l'ajout, la suppression, et la vérification des informations relatives aux utilisateurs, comme ajouter
 un nouvel utilisateur, en supprimer un, ou bien pour un utilisateur existant tentant de se connecter au blog. -->
-
 <?php 
-
 require('Connexion.php');
 
 class UserManager {
@@ -27,18 +25,22 @@ class UserManager {
         $request->execute([$userName, $email, hash('sha256', Config::getSaltKey1().$password.Config::getSaltKey2()), $firstName, $lastName, date('Y-m-d H:i:s'), $actualusertype]);
     }
 
+
+    // Fonction pour vérifier l'utilisateur/mot de passe de la personne qui essaie de se connecter.
     public function checkUser($userName, $password) {
 
         $request = $this->newconnexion->connexion->prepare('SELECT * FROM users WHERE userName = ? AND userPassword = ?');
         $request->execute([$userName, hash('sha256', Config::getSaltKey1().$password.Config::getSaltKey2())]);
 
+
+        // Si il y a un résultat/correspondance, et donc que le mot de passe et le login est bon, on le met dans une session et l'utilisateur est logué.
         $user = $request->fetch();
         $_SESSION['userName'] = $user['userName'];
         $_SESSION['userPassword'] = $user['userPassword'];
 
+        // Sinon, on affiche un message d'erreur, et on invite l'utilisateur à essayer à nouveau.
 
     }
 
 }
-
 ?>

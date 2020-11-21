@@ -2,7 +2,6 @@
 relative à la base de données et pour s'y connecter. -->
 
 <?php
-
 require('Config.php');
 
 class Connexion {
@@ -10,8 +9,7 @@ class Connexion {
 
     // Constructor qui permet de faire la connexion, en PDO, directement lorsque l'on fera une new class ailleurs.
     public function __construct() {
-        $this->connexion = new PDO("mysql:host=".Config::getDbHost().";dbname=".Config::getDbName(), Config::getDbUser() , Config::getDbPassword() );
+        $this->connexion = new PDO("mysql:host=".Config::getDbHost().";dbname=".Config::getDbName(), Config::getDbUser(), Config::getDbPassword());
     }
 }
-
 ?>
