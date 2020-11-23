@@ -16,7 +16,7 @@
     <h3>Ajouter un nouvel utilisateur</h3>
     <input type="text" id="user-name-input" name="user-name-input" placeholder="Nom d'Utilisateur"/>
     <input type="text" id="user-email-input" name="user-email-input" placeholder="Email"/>
-    <input type="text" id="password-input" name="password-input" placeholder="Mot de Passe"/>
+    <input type="password" id="password-input" name="password-input" placeholder="Mot de Passe"/>
     <input type="text" id="firstname-input" name="firstname-input" placeholder="Prénom"/>
     <input type="text" id="lastname-input" name="lastname-input" placeholder="Nom de Famille"/>
     <div id="radio-register-role">

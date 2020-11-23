@@ -25,7 +25,7 @@ if (isset($_POST['input-username'])) {
 <form id="login-form" method="POST" action="">
     <h3 id="connect-title">Connectez-vous</h3>
     <input type="text" id="input-username" name="input-username" placeholder="Username"/>
-    <input type="text" id="input-password" name="input-password" placeholder="Password"/>
+    <input type="password" id="input-password" name="input-password" placeholder="Password"/>
     <?php 
     if(isset($_SESSION['errorMessage'])) { ?>
 
