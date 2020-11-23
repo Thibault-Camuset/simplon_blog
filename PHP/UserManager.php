@@ -24,10 +24,7 @@ class UserManager {
 
         // Requête PDO en deux temps, pour éviter les injections SQL. Ici, on utilise une méthode hash sur le mot de passe, avec des clés secrètes dans le fichier config, par sécurité.
         $request = $this->newconnexion->connexion->prepare('INSERT INTO users(userName, userEmail, userPassword, userFirstName, userLastName, createdAt, roleId) VALUES (?, ?, ?, ?, ?, ?, ?)');
-        $request->execute([$userName, $email, password_hash(Config::getSaltKey1().$password.Config::getSaltKey2(), PASSWORD_BCRYPT), $firstName, $lastName, date('Y-m-d H:i:s'), $actualusertype]);
-
-        // hash('sha256', Config::getSaltKey1().$password.Config::getSaltKey2())
-        password_hash(Config::getSaltKey1().$password.Config::getSaltKey2(), PASSWORD_BCRYPT)
+        $request->execute([$userName, $email, password_hash($password, PASSWORD_BCRYPT), $firstName, $lastName, date('Y-m-d H:i:s'), $actualusertype]);
     }
 
 
@@ -39,11 +36,12 @@ class UserManager {
     // Fonction pour vérifier l'utilisateur/mot de passe de la personne qui essaie de se connecter.
     public function checkUser($userName, $password) {
 
-        $request = $this->newconnexion->connexion->prepare('SELECT * FROM users WHERE userName = ? AND userPassword = ?');
-        $request->execute([$userName, password_hash(Config::getSaltKey1().$password.Config::getSaltKey2(), PASSWORD_BCRYPT)]);
+        $request = $this->newconnexion->connexion->prepare('SELECT * FROM users WHERE userName = ?');
+        $request->execute([$userName]);
         $result = $request->fetch();
 
-        if($result != false) {
+        if($result != false && password_verify($password, $result['userPassword'])) {
+            
             $_SESSION['userName'] = $result['userName'];
             header( "refresh:1; url=./index.php" ); 
         } else {

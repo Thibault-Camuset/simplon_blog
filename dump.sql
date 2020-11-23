@@ -24,7 +24,7 @@ CREATE TABLE users
     userId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     userName TEXT,
     userEmail TEXT,
-    userPassword VARCHAR(64),
+    userPassword VARCHAR(60),
     userFirstName TEXT,
     userLastName TEXT,
     createdAt DATE,
