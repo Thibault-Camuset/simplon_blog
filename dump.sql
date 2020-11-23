@@ -78,7 +78,7 @@ INSERT INTO categories(categoryName) VALUES ("Tech"),("Code"),("Video Games"),("
 
 
 
-CREATE TABLE articles-categories
+CREATE TABLE articles_categories
 (
     articleId INT,
     FOREIGN KEY(articleId) REFERENCES articles(articleId),

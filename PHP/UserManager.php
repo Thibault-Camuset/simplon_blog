@@ -45,17 +45,8 @@ class UserManager {
             header( "refresh:1; url=./index.php" ); 
         } else {
             $_SESSION['errorMessage'] = "Nom d'utilisateur ou mot de passe incorrect";
-            header("location:./login.php"); 
+            header("Location: ./login.php"); 
         }
     }
-
-    // public function setErrorMessage($actualerrormessage) {
-    //     $this->errormessage = $actualerrormessage;
-    // }
-
-    // public function getErrorMessage() {
-    //     return $this->errormessage;
-    // }
-
 }
 ?>
