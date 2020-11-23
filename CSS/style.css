@@ -1,28 +1,79 @@
 
-/* Page d'accueil */
-
-#content-home {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+body {
+    padding:0;
+    margin:0;
 }
 
-#goto-login-form {
-    border: 1px black solid;
+/* Page d'accueil */
+
+#navbar {
+    position:sticky;
+    top:0;
+    height:6vmin;
+    width:100vw;
+    z-index:5;
+    background-color:lightgray;
+}
+
+#log-buttons {
+    position: absolute;
+    top:2vh;
+    right:2vw;
+}
+
+#log-button p {
+
+}
+
+#goto-login-form, #goto-deconnect {
     text-decoration:none;
-    padding:2vh 1vw;
+    padding:1vmin 1vmax;
     color:black;
     font-weight:bold;
     font-size:16px;
 }
 
-#goto-login-form:hover {
+#categories-buttons {
+    position: absolute;
+    left:40%;
+    z-index:10;
+}
+
+#category-tech, #category-code, #category-video-games, #category-series, #category-science {
+    padding: 2vmin 2vmin;
+    background-color:white;
+    border: 2px solid black;
+    border-top:none;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:bold;
+    margin-top:-1px;
+}
+
+#category-tech:hover, #category-code:hover, #category-video-games:hover, #category-series:hover, #category-science:hover {
     background-color:black;
     color:white;
 }
 
+#category-tech {
+    background-color:lightblue;
+}
 
+#category-code {
+    background-color:lightcoral;
+}
+
+#category-video-games {
+    background-color:lightgreen;
+}
+
+#category-series {
+    background-color:lightyellow;
+}
+
+#category-science {
+    background-color:burlywood;
+}
 
 
 /* Page de Login */
