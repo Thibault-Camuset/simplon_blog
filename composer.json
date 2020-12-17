@@ -1,0 +1,19 @@
+{
+    "name": "thibault_camuset/simplon_blog",
+    "description": "Projet de blog dans le cadre de la formation Simplon",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Thibault-Camuset",
+            "email": "thibault.camuset@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/dotenv": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
