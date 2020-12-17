@@ -1,19 +1,13 @@
-<?php session_start(); ?>
+<?php session_start();
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Blog</title>
-    <link rel="stylesheet" href="CSS/style.css">
-</head>
-<body>
+require __DIR__ . '/../template/header.php';
     
-<?php
-
 require('PHP/UserManager.php');
 $manager = new UserManager();
+
+
+
+
 
 if (isset($_POST['input-username'])) {
 
@@ -41,7 +35,10 @@ if (isset($_POST['input-username'])) {
         <input type="submit" id="user-register-submit" value="Log-In"/>
     </div>
 </form>
-<?php } ?>
+<?php }
 
-</body>
-</html>
+
+
+
+
+require __DIR__ . '/../template/footer.php'; ?>

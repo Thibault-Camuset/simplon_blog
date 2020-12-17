@@ -15,10 +15,7 @@ class DefaultController {
     }
 
     public function home() {
-        require __DIR__ . '/../Views/others/home.php';
+        require __DIR__ . '/../Views/pages/home.php';
     }
-
-
-
 }
 
