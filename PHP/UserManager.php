@@ -22,7 +22,7 @@ class UserManager {
             $actualusertype = 3;
         }
 
-        // Requête PDO en deux temps, pour éviter les injections SQL. Ici, on utilise une méthode hash sur le mot de passe, avec des clés secrètes dans le fichier config, par sécurité.
+        // Requête PDO en deux temps, pour éviter les injections SQL. Ici, on utilise une méthode hash sur le mot de passe pour sécuriser son enregistrement.
         $request = $this->newconnexion->connexion->prepare('INSERT INTO users(userName, userEmail, userPassword, userFirstName, userLastName, createdAt, roleId) VALUES (?, ?, ?, ?, ?, ?, ?)');
         $request->execute([$userName, $email, password_hash($password, PASSWORD_BCRYPT), $firstName, $lastName, date('Y-m-d H:i:s'), $actualusertype]);
     }
