@@ -17,7 +17,11 @@
 
 ### Consignes d'utilisation:
 
-- (A venir)
+- Composer Install pour installer les paquets nécessaires.
+- Créer un fichier .env à la racine du projet, et paramètrer les identifiants de connexion à la base de données avec DB_HOST, DB_USERNAME, DB_PASSWORD et DB_NAME.
+- Utiliser le dump.sql pour créer la base de données.
+- *(optionnel) créer un Virtual Host pointant vers le dossier /public/ dans le projet.*
+- Un utilisateur administrateur est crée par défaut. Vous pouvez cependant créer des nouveaux utilisateurs à loisir!
 
 ---
 
