@@ -1,201 +1,339 @@
-
 body {
-    padding:0;
-    margin:0;
+  padding: 0;
+  margin: 0;
 }
 
 /* Page d'accueil */
 
 #navbar {
-    position:sticky;
-    top:0;
-    height:6vmin;
-    width:100vw;
-    z-index:5;
-    background-color:lightgray;
+  position: sticky;
+  top: 0;
+  height: 10vmin;
+  width: 100vw;
+  z-index: 5;
+  background-color: lightgray;
 }
 
 #log-buttons {
-    position: absolute;
-    top:2vh;
-    right:2vw;
+  position: absolute;
+  top: 2vh;
+  right: 2vw;
+}
+
+#admin-buttons {
+  position: absolute;
+  top: 2vh;
+  left: 2vw;
 }
 
 #log-button p {
-
 }
 
-#goto-login-form, #goto-deconnect {
-    text-decoration:none;
-    padding:1vmin 1vmax;
-    color:black;
-    font-weight:bold;
-    font-size:16px;
+#home-button-input {
+  position: absolute;
+  top: 2.5vh;
+  left: 49%;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+  cursor: pointer;
+}
+
+#home-button-input:hover {
+  color: red;
+  font-size: 26px;
+}
+
+#goto-login-form,
+#goto-deconnect,
+#admin-pannel-button {
+  text-decoration: none;
+  padding: 1vmin 1vmax;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 #categories-buttons {
-    position: absolute;
-    left:40%;
-    z-index:10;
+  position: relative;
+  left: 35%;
+  z-index: 2;
+  max-width: 50vw;
+  margin-top: 5vh;
+  margin-bottom: 10vh;
 }
 
-#category-tech, #category-code, #category-video-games, #category-series, #category-science {
-    padding: 2vmin 2vmin;
-    background-color:white;
-    border: 2px solid black;
-    border-top:none;
-    cursor:pointer;
-    font-size:14px;
-    font-weight:bold;
-    margin-top:-1px;
+#category-tech,
+#category-code,
+#category-video-games,
+#category-series,
+#category-science {
+  padding: 2vmin 2vmin;
+  background-color: white;
+  border: 2px solid black;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 1.5vh;
+  margin-left: 1.5vh;
 }
 
-#category-tech:hover, #category-code:hover, #category-video-games:hover, #category-series:hover, #category-science:hover {
-    background-color:black;
-    color:white;
+#category-tech:hover,
+#category-code:hover,
+#category-video-games:hover,
+#category-series:hover,
+#category-science:hover {
+  background-color: black;
+  color: white;
 }
 
 #category-tech {
-    background-color:lightblue;
+  background-color: lightblue;
 }
 
 #category-code {
-    background-color:lightcoral;
+  background-color: lightcoral;
 }
 
 #category-video-games {
-    background-color:lightgreen;
+  background-color: lightgreen;
 }
 
 #category-series {
-    background-color:lightyellow;
+  background-color: lightyellow;
 }
 
 #category-science {
-    background-color:burlywood;
+  background-color: burlywood;
 }
-
 
 /* Page de Login */
 
-#login-form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display:flex;
-    flex-direction:column;
+#login-whole-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-#user-register-submit {
-    border: 1px black solid;
-    padding:2vh 1vw;
-    background-color:white;
-    cursor:pointer;
-    font-weight:bold;
-    font-size:14px;
+#user-login-submit {
+  border: 1px black solid;
+  padding: 2vh 1vw;
+  width: 10vw;
+  background-color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
-#user-register-submit:hover {
-    background-color:black;
-    color:white;
+#user-login-submit:hover {
+  background-color: black;
+  color: white;
 }
 
 #goto-add-user {
-    border: 1px black solid;
-    text-decoration:none;
-    padding:2vh 1vw;
-    color:black;
-    font-weight:bold;
-    font-size:16px;
+  border: 1px black solid;
+  text-decoration: none;
+  padding: 2vh 1vw;
+  color: black;
+  width: 10vw;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 #goto-add-user:hover {
-    background-color:black;
-    color:white;
+  background-color: black;
+  color: white;
 }
 
-#input-username, #input-password {
-    margin:1vmin;
-    border:1px solid black;
-    padding:1vh 1vw;
+#input-username,
+#input-password {
+  margin: 1vmin;
+  border: 1px solid black;
+  padding: 1vh 1vw;
 }
 
-#input-username:focus::placeholder, #input-password:focus::placeholder {
-    color:transparent;
+#input-username:focus::placeholder,
+#input-password:focus::placeholder {
+  color: transparent;
 }
 
 #login-flex-row {
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    margin-top:2vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2vh;
 }
 
 #connect-title {
-    margin:auto;
-    margin-bottom:2vh;
+  margin: auto;
+  margin-bottom: 2vh;
 }
 
 #error-message {
-    color:red;
-    font-size:16px;
-    font-weight:bold;
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
 }
-
 
 /* Page Register */
 
 #add-user-form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display:flex;
-    flex-direction:column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
 }
-
 
 #radio-register-role {
-    display:flex;
-    flex-direction:row;
-    justify-content:space-around;
-    margin: 2vh 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2vh 0;
 }
 
-#user-name-input, #user-email-input, #password-input, #firstname-input, #lastname-input {
-    margin:1vmin;
-    border:1px solid black;
-    padding:1vh 1vw;
+#user-name-input,
+#user-email-input,
+#password-input,
+#firstname-input,
+#lastname-input {
+  margin: 1vmin;
+  border: 1px solid black;
+  padding: 1vh 1vw;
 }
 
 #form-add-submit {
-    margin:1vmin;
-    border:1px solid black;
-    padding:1vh 0.5vw;
-    background-color:white;
-    font-weight:bold;
-    font-size:14px;
+  margin: 1vmin;
+  border: 1px solid black;
+  padding: 1vh 0.5vw;
+  background-color: white;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 #form-add-submit:hover {
-    background-color:black;
-    color:white;
+  background-color: black;
+  color: white;
 }
-
-
-
 
 /* Page Validation Ajout Utilisateur */
 
 #user-added-finish {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #user-added-confirm {
-    font-size:18px;
-    font-weight:bold;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Mise en page des articles */
+
+#article-list {
+}
+
+.article-item {
+  display: block;
+  text-align: center;
+  height: 25vh;
+  margin-top: 50px;
+}
+
+/* Page Admin */
+
+.admin-option {
+  display: flex;
+  flex-direction: column;
+  height: 25vmin;
+  width: 25vmin;
+  border: solid black 1px;
+  text-align: center;
+  justify-content: center;
+  margin: 5vmin;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.align-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#admin-article-option {
+  color: white;
+  background-color: red;
+  border: white solid 1px;
+}
+
+#admin-article-option:hover {
+  color: red;
+  background-color: white;
+  border: red solid 1px;
+}
+
+#admin-user-option {
+  color: white;
+  background-color: green;
+  border: white solid 1px;
+}
+
+#admin-user-option:hover {
+  color: green;
+  background-color: white;
+  border: green solid 1px;
+}
+
+#admin-picture-option {
+  color: white;
+  background-color: blue;
+  border: white solid 1px;
+}
+
+#admin-picture-option:hover {
+  color: blue;
+  background-color: white;
+  border: blue solid 1px;
+}
+
+#admin-unknown-option {
+  color: white;
+  background-color: yellow;
+  border: white solid 1px;
+}
+
+#admin-unknown-option:hover {
+  color: gold;
+  background-color: white;
+  border: gold solid 1px;
+}
+
+/* Article detail */
+
+#article-box {
+  text-align: center;
+  margin-top: 10vh;
 }

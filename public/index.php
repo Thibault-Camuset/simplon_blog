@@ -1,5 +1,4 @@
 <?php
-
 // Gestion de l'autoload de composer
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -14,48 +13,65 @@ use App\Services\DataBase\DBManagerInterface;
 use App\Services\DataBase\PDOManager;
 use App\Controller\DefaultController;
 use App\Controller\ArticleController;
+use App\Controller\UserController;
 
 // On définit les controlleurs et leur utilisation
 $controller = isset($_GET['c']) && $_GET['c'] ? $_GET['c'] : 'default';
 $action = isset($_GET['a']) && $_GET['a'] ? $_GET['a'] : 'list';
 
 
-if (isset($_GET['admin'])) {
-    if(!isset($_SESSION['user']) || !$_SESSION['user']) {
-    // verif connexion admin
-    } else {
-    // redirection accueil
-    }
-}
+
 
 switch ($controller) {
     case 'article':
 
-        $productController = new ArticleController();
+        $articleController = new ArticleController();
         switch ($action) {
             case 'list':
-                $productController->search();
+                $articleController->list();
+                break;
+            case 'read':
+                $articleController->selectBy($_GET['id']);
                 break;
             case 'search':
-                $productController->search();
+                $articleController->search();
                 break;
             case 'add':
-                $productController->add();
+                $articleController->add();
                 break;    
             case 'delete':
-                $productController->delete();
+                $articleController->delete();
                 break;
         }
 
         break;
 
-    case 'categories':
+    case 'user':
+
+        $userController = new UserController();
+        switch ($action) {
+            case 'login':
+                $userController->login();
+                break;
+            case 'logout':
+                $userController->logout();
+                break;
+            case 'register':
+                $userController->register();
+                break;
+            case 'admin':
+                $userController->admin();
+                break;
+        }
+        break;
+
+    case 'categorie':
         break;
 
     case 'default':
     default:
-        $defaultController = new DefaultController();
-        $defaultController->home();
+        $articleController = new ArticleController();
+        $articleController->list();
         break;
 }
 

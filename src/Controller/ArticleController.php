@@ -14,6 +14,18 @@ class ArticleController {
         $this->articleRepository = new ArticleRepository($dbManager);
     }
 
+    public function list() {
+        $articles = $this->articleRepository->selectAll();
+        $title = 'Liste'; 
+        require __DIR__ . '/../Views/articles/list.php';
+    }
+
+    public function selectBy($id) {
+        $article = $this->articleRepository->selectBy($id);
+        $title = 'Article'; 
+        require __DIR__ . '/../Views/articles/read.php';
+    }
+
     
 
 
