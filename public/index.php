@@ -65,13 +65,31 @@ switch ($controller) {
         }
         break;
 
-    case 'categorie':
+    case 'category':
+        $articleController = new ArticleController();
+        switch ($action) {
+        case 'Tech':
+            $articleController->orderBy('Tech');
+        break;
+        case 'Code':
+            $articleController->orderBy('Code');
+        break;
+        case 'Games':
+            $articleController->orderBy('Games');
+        break;
+        case 'Series':
+            $articleController->orderBy('Series');
+        break;
+        case 'Science':
+            $articleController->orderBy('Science');
+        break;
+
+        }
         break;
 
     case 'default':
     default:
-        $articleController = new ArticleController();
-        $articleController->list();
+        header("Location: /article/list");
         break;
 }
 

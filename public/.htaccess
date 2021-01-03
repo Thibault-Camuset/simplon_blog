@@ -1,6 +1,0 @@
-Options +FollowSymLinks
-RewriteEngine On
-
-
-RewriteRule ^([A-Za-z0-9\-\s]*)/([A-Za-z0-9\-\s]*)$ ?c=$1&a=$2 [L,QSA]
-RewriteRule ^admin/([A-Za-z0-9\-\s]*)/([A-Za-z0-9\-\s]*)$ admin=true&?c=$1&a=$2 [L,QSA]

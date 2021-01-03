@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php $page_title ?></title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/public/assets/css/style.css">
 </head>
 <body>
 
@@ -15,20 +15,20 @@
 <?php
     if (isset($_SESSION['userName']) && $_SESSION['userRole'] == 'Admin') { ?>
         <div id="admin-buttons">
-            <form method="GET">
+            <a href="/user/admin">Panneau d'admin</a>
+            <!-- <form method="GET">
                 <input type="hidden" name="c" value="user"/>
                 <input type="hidden" name="a" value="admin"/>
                 <input type="submit" id="admin-pannel-button" value="Panneau d'admin">
-            </form> 
+            </form>  -->
         </div>
     <?php } ?>
 
 
         <div id="home-button">
-            <a id="home-button-input" href="./index.php">Home</a>
+            <a id="home-button-input" href="/article/list">Home</a>
         </div>
 
-  
 
         <div id="log-buttons">
             <?php if(isset($_SESSION['userName'])) { ?>

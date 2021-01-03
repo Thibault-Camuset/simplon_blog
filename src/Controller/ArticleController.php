@@ -15,7 +15,20 @@ class ArticleController {
     }
 
     public function list() {
-        $articles = $this->articleRepository->selectAll();
+        $nbArticle = $this->articleRepository->count();
+        $nbElement = 5;
+        $nbPages = ceil($nbArticle / $nbElement);
+
+
+        if (isset($_GET['page'])) {
+            $offset = ($_GET['page'] -1) * $nbElement;
+        } else {
+            $offset = 0;
+        }
+
+
+
+        $articles = $this->articleRepository->selectAll($nbElement, $offset);
         $title = 'Liste'; 
         require __DIR__ . '/../Views/articles/list.php';
     }
@@ -24,6 +37,13 @@ class ArticleController {
         $article = $this->articleRepository->selectBy($id);
         $title = 'Article'; 
         require __DIR__ . '/../Views/articles/read.php';
+    }
+
+    public function orderBy($category) {
+        $category_articles = $this->articleRepository->orderBy($category);
+        $title = "$category";
+        require __DIR__ . "/../Views/articles/$category.php";
+
     }
 
     

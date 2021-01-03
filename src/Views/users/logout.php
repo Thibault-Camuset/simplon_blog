@@ -4,6 +4,6 @@
 
 <p>Vous avez bien été déconnecté! Vous allez être redirigé vers la page d'accueil</p>
 
-<?php header("refresh:3; url=./index.php"); ?>
+<?php header("refresh:3; url=/"); ?>
 
 <?php require __DIR__ . '/../template/footer.php'; ?>

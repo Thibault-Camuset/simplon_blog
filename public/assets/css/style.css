@@ -57,7 +57,8 @@ body {
 
 #categories-buttons {
   position: relative;
-  left: 35%;
+  display: flex;
+  left: 36%;
   z-index: 2;
   max-width: 50vw;
   margin-top: 5vh;
@@ -66,7 +67,7 @@ body {
 
 #category-tech,
 #category-code,
-#category-video-games,
+#category-games,
 #category-series,
 #category-science {
   padding: 2vmin 2vmin;
@@ -81,7 +82,7 @@ body {
 
 #category-tech:hover,
 #category-code:hover,
-#category-video-games:hover,
+#category-games:hover,
 #category-series:hover,
 #category-science:hover {
   background-color: black;
@@ -96,7 +97,7 @@ body {
   background-color: lightcoral;
 }
 
-#category-video-games {
+#category-games {
   background-color: lightgreen;
 }
 
@@ -336,4 +337,47 @@ body {
 #article-box {
   text-align: center;
   margin-top: 10vh;
+}
+
+.article-item h3 {
+  font-size: 26px;
+}
+
+/* Icones categories */
+
+.category-icon {
+  position: relative;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  top: 8vmin;
+  left: 150vmin;
+  width: 15vmin;
+  height: 6vmin;
+  border: solid black 1px;
+  font-weight: bold;
+}
+
+.category-Tech {
+  background-color: lightblue;
+}
+
+.category-Code {
+  background-color: lightcoral;
+}
+
+.category-Games {
+  background-color: lightgreen;
+}
+
+.category-Series {
+  background-color: lightyellow;
+}
+
+.category-Science {
+  background-color: burlywood;
+}
+
+.category-selected {
+  border: solid red 3px !important;
 }

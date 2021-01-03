@@ -34,13 +34,34 @@ CREATE TABLE users
 INSERT INTO users(userName, userEmail, userPassword, userFirstName, userLastName, createdAt, roleId) VALUES ('Toto', 'toto@gmail.com', '$2y$10$l8I.iuxEu7vLZ0rZyhvfHerV/kkG6IhHIzcD7m/KPZKSpZalV7GwW', 'Toto', 'Le Grand', '2020-11-12', 1);
 
 
+
+
+
+
+CREATE TABLE categories
+(
+    categoryName VARCHAR(60) PRIMARY KEY NOT NULL
+);
+
+INSERT INTO categories(categoryName) VALUES ("Tech"),("Code"),("Games"),("Series"),("Science");
+
+
+
+
+
+
+
+
+
 CREATE TABLE articles
 (
     articleId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     articleTitle TEXT,
     articleContent TEXT,
     userName VARCHAR(60),
-    FOREIGN KEY(userName) REFERENCES users(userName)
+    FOREIGN KEY(userName) REFERENCES users(userName),
+    categoryName VARCHAR(60),
+    FOREIGN KEY(categoryName) REFERENCES categories(categoryName)
 );
 
 
@@ -55,29 +76,4 @@ CREATE TABLE pictures
     pictureUrl TEXT,
     userName VARCHAR(60),
     FOREIGN KEY(userName) REFERENCES users(userName)
-);
-
-
-
-
-
-
-CREATE TABLE categories
-(
-    categoryId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    categoryName TEXT
-);
-
-INSERT INTO categories(categoryName) VALUES ("Tech"),("Code"),("Video Games"),("Series"),("Science");
-
-
-
-
-CREATE TABLE articles_categories
-(
-    articleId INT,
-    FOREIGN KEY(articleId) REFERENCES articles(articleId),
-    categoryId INT,
-    FOREIGN KEY(categoryId) REFERENCES categories(categoryId),
-    CONSTRAINT productcategory PRIMARY KEY(articleId, categoryId)
 );

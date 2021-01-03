@@ -19,8 +19,16 @@ class PDOManager {
 
 
 
-    public function selectAll($table) {
-        $request = $this->_connexion->query("SELECT * FROM $table");
+    public function count($table) {
+        $request = $this->_connexion->prepare("SELECT COUNT(*) FROM $table");
+        $request->execute();
+        $count = $request->fetch();
+        
+        return $count[0];
+    }
+
+    public function selectAll($table, $nbElement, $offset) {
+        $request = $this->_connexion->query("SELECT * FROM $table LIMIT $offset, $nbElement");
         $results = [];
         while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
             $results[] = $row;
@@ -43,7 +51,7 @@ class PDOManager {
             } else {
                 $_SESSION['userRole'] = 'User';
             }
-            header( "refresh:1; url=./index.php" ); 
+            header( "refresh:1; url=/" ); 
         } else {
             $_SESSION['errorMessage'] = "Nom d'utilisateur ou mot de passe incorrect";
             header("Refresh:0");
@@ -73,6 +81,18 @@ class PDOManager {
         $result = $request->fetch();
         
         return $result;
+    }
+
+
+
+    public function orderBy($table, $category) {
+        $request = $this->_connexion->prepare("SELECT * FROM $table WHERE categoryName = ?");
+        $request->execute([$category]);
+        $results = [];
+        while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
+            $results[] = $row;
+        }
+        return $results;
     }
 
 }

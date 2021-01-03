@@ -9,6 +9,7 @@ class Article {
     private $_title;
     private $_user;
     private $_content;
+    private $_category;
 
 
 
@@ -33,6 +34,9 @@ class Article {
         return $this->_content;
     }
 
+    public function getCategory() {
+        return $this->_category;
+    }
 
 
 
@@ -56,6 +60,11 @@ class Article {
 
     public function setContent($content) {
         $this->_content = $content;
+        return $this;
+    }
+
+    public function setCategory($category) {
+        $this->_category = $category;
         return $this;
     }
 
