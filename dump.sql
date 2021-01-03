@@ -21,8 +21,7 @@ INSERT INTO roles(roleName) VALUES ("Admin"),("Rédacteur"),("Utilisateur");
 
 CREATE TABLE users
 (
-    userId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    userName TEXT,
+    userName VARCHAR(60) PRIMARY KEY NOT NULL,
     userEmail TEXT,
     userPassword VARCHAR(60),
     userFirstName TEXT,
@@ -32,11 +31,7 @@ CREATE TABLE users
     FOREIGN KEY(roleId) REFERENCES roles(roleId)
 );
 
-INSERT INTO users(userName, userEmail, userPassword, userFirstName, userLastName, createdAt, roleId) VALUES ('Toto', 'toto@gmail.com', 'cd10d7a0e698d034304d2f118025468a4a4e8b725528d18ab3132f04d41584f8', 'Toto', 'Le Grand', '2020-11-18', 1);
-
-
-
-
+INSERT INTO users(userName, userEmail, userPassword, userFirstName, userLastName, createdAt, roleId) VALUES ('Toto', 'toto@gmail.com', '$2y$10$l8I.iuxEu7vLZ0rZyhvfHerV/kkG6IhHIzcD7m/KPZKSpZalV7GwW', 'Toto', 'Le Grand', '2020-11-12', 1);
 
 
 CREATE TABLE articles
@@ -44,8 +39,8 @@ CREATE TABLE articles
     articleId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     articleTitle TEXT,
     articleContent TEXT,
-    userId INT,
-    FOREIGN KEY(userId) REFERENCES users(userId)
+    userName VARCHAR(60),
+    FOREIGN KEY(userName) REFERENCES users(userName)
 );
 
 
@@ -58,8 +53,8 @@ CREATE TABLE pictures
     pictureId INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     pictureTitle TEXT,
     pictureUrl TEXT,
-    userId INT,
-    FOREIGN KEY(userId) REFERENCES users(userId)
+    userName VARCHAR(60),
+    FOREIGN KEY(userName) REFERENCES users(userName)
 );
 
 

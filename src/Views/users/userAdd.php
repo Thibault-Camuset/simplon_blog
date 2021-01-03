@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-
-    <meta charset="utf-8">
-    <meta name="author" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" type="text/css" href="../CSS/style.css">
-    <title></title>
-</head>
-<body>
+<?php require __DIR__ . '/../template/header.php'; ?>
 
 <?php
 $username = $_POST['user-name-input'];
@@ -19,10 +8,10 @@ $firstname = $_POST['firstname-input'];
 $lastname = $_POST['lastname-input'];
 $usertype = $_POST['user-type-input'];
 
-require('UserManager.php');
+use App\Controller\UserController;
+$userController = new UserController();
 
-$manager = new UserManager();
-$manager->addUser($username, $email, $password, $firstname, $lastname, $usertype);
+$userController->userRepository->addUser($username, $email, $password, $firstname, $lastname, $usertype);
 ?>
 
 <div id="user-added-finish">
@@ -32,5 +21,4 @@ $manager->addUser($username, $email, $password, $firstname, $lastname, $usertype
 
 <?php header( "refresh:3; url=../index.php" ); ?>
 
-</body>
-</html>
+<?php require __DIR__ . '/../template/footer.php'; ?>
