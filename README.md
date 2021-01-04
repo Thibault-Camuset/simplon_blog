@@ -5,7 +5,7 @@
 *Projet Simplon de réalisation de blog, fonctionnel, hébergable en ligne, et avec système de login et d'utilisateurs.*
 
 
-- Version en ligne: (A venir)
+- Version en ligne: http://blog.developer-road.com
 
 - MCD: https://app.lucidchart.com/invitations/accept/38642813-67f0-42da-9401-4b58d6c3dcff
 
@@ -22,6 +22,10 @@
 - Utiliser le dump.sql pour créer la base de données.
 - *(optionnel) créer un Virtual Host pointant vers le dossier /public/ dans le projet.*
 - Un utilisateur administrateur est crée par défaut. Vous pouvez cependant créer des nouveaux utilisateurs à loisir!
+
+- Ou bien... Juste simplement utiliser la version en ligne!
+
+- Un utilisateur par défaut, 'Toto' est disponible pour se connecter avec le mot de passe 'Coucou'. Il est possible de créer un nouvel utilisateur pour rédiger/modifier les articles du blog, ou bien un utilisateur sinmple, non enregistré peux visiter le blog et consulter les articles.
 
 ---
 
