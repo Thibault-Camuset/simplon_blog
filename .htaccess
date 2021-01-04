@@ -1,7 +1,6 @@
 Options +FollowSymLinks
 RewriteEngine On
 
-
 RewriteRule ^([A-Za-z0-9\-\s]*)/([A-Za-z0-9\-\s]*)/([A-Za-z0-9\-\s]*)$ /public/index.php?c=$1&a=$2&page=$3 [L,QSA]
 RewriteRule ^([A-Za-z0-9\-\s]*)/([A-Za-z0-9\-\s]*)$ /public/index.php?c=$1&a=$2 [L,QSA]
 RewriteRule ^$ /public/index.php [L,QSA]

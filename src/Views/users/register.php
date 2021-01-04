@@ -38,10 +38,10 @@ $userController->userRepository->addUser($username, $email, $password, $firstnam
 
 <div id="user-added-finish">
 <p id="user-added-confirm">Utilisateur bien ajouté!</p>
-<p>Vous allez être redirigé vers la page d'accueil dans quelques secondes, sinon, cliquez <a href="../index.php">ICI</a> pour être redirigé</p>
+<p>Vous allez être redirigé vers la page d'accueil dans quelques secondes, sinon, cliquez <a href="/">ICI</a> pour être redirigé</p>
 </div>
 
-<?php header( "refresh:3; url=../index.php" ); 
+<?php header( "refresh:3; url=/" ); 
 }?>
 
 <?php require __DIR__ . '/../template/footer.php'; ?>

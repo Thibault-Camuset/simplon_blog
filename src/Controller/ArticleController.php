@@ -19,7 +19,7 @@ class ArticleController {
         $nbElement = 5;
         $nbPages = ceil($nbArticle / $nbElement);
 
-
+        
         if (isset($_GET['page'])) {
             $offset = ($_GET['page'] -1) * $nbElement;
         } else {
@@ -44,6 +44,34 @@ class ArticleController {
         $title = "$category";
         require __DIR__ . "/../Views/articles/$category.php";
 
+    }
+
+    public function delete($id) {
+        $this->articleRepository->delete($id);
+        $title = 'Delete';
+        header("refresh:0; url=/user/adminarticles"); 
+    }
+
+    public function redac() {
+        if (isset($_POST['articleTitle'])) {
+
+            $article = new Article();
+            
+            $article->setTitle($_POST['articleTitle'])
+                    ->setUser($_POST['userName'])
+                    ->setContent($_POST['articleContent'])
+                    ->setCategory($_POST['articleCategory']);
+
+            $this->articleRepository->addArticle($article);
+
+            echo 'Article bien ajouté!';
+            header("refresh:3; url=/"); 
+
+
+
+        } else {
+        require __DIR__ . '/../Views/articles/redac.php';
+        }
     }
 
     

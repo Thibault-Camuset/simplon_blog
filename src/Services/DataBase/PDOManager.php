@@ -95,6 +95,16 @@ class PDOManager {
         return $results;
     }
 
+    public function delete($table, $column, $id) {
+        $request = $this->_connexion->prepare("DELETE FROM $table WHERE $column = ?");
+        $request->execute([$id]);
+    }
+
+    public function addArticle($article) {
+        $request = $this->_connexion->prepare("INSERT INTO articles(articleTitle, articleContent, userName, categoryName) VALUES(?,?,?,?)");
+        $request->execute([$article->getTitle(), $article->getContent(), $article->getUser(), $article->getCategory()]);
+    }
+
 }
 
     ?>

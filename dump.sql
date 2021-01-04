@@ -1,10 +1,3 @@
-DROP DATABASE IF EXISTS simplon_blog;
-
-CREATE DATABASE simplon_blog;
-
-
-
-
 
 CREATE TABLE roles
 (

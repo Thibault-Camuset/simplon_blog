@@ -20,8 +20,6 @@ $controller = isset($_GET['c']) && $_GET['c'] ? $_GET['c'] : 'default';
 $action = isset($_GET['a']) && $_GET['a'] ? $_GET['a'] : 'list';
 
 
-
-
 switch ($controller) {
     case 'article':
 
@@ -33,6 +31,12 @@ switch ($controller) {
             case 'read':
                 $articleController->selectBy($_GET['id']);
                 break;
+            case 'edit':
+                $articleController->edit($_GET['id']);
+                break;
+            case 'redac':
+                $articleController->redac();
+                break;
             case 'search':
                 $articleController->search();
                 break;
@@ -40,7 +44,7 @@ switch ($controller) {
                 $articleController->add();
                 break;    
             case 'delete':
-                $articleController->delete();
+                $articleController->delete($_GET['id']);
                 break;
         }
 
@@ -60,7 +64,16 @@ switch ($controller) {
                 $userController->register();
                 break;
             case 'admin':
-                $userController->admin();
+                $userController->admin('');
+                break;
+            case 'adminarticles':
+                $userController->admin('adminarticles');
+                break;
+            case 'adminusers':
+                $userController->admin('adminusers');
+                break;
+            case 'adminpictures':
+                $userController->admin('adminpictures');
                 break;
         }
         break;

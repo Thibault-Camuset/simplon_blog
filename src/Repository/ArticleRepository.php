@@ -68,4 +68,12 @@ class ArticleRepository {
 
     }
 
+    public function delete($id) {
+        $this->dbManager->delete($this->table, 'articleId', $id);
+    }
+
+    public function addArticle($article) {
+        $this->dbManager->addArticle($article);
+    }
+
 }

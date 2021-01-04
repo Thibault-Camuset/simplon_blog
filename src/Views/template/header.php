@@ -15,14 +15,19 @@
 <?php
     if (isset($_SESSION['userName']) && $_SESSION['userRole'] == 'Admin') { ?>
         <div id="admin-buttons">
-            <a href="/user/admin">Panneau d'admin</a>
-            <!-- <form method="GET">
-                <input type="hidden" name="c" value="user"/>
-                <input type="hidden" name="a" value="admin"/>
-                <input type="submit" id="admin-pannel-button" value="Panneau d'admin">
-            </form>  -->
+            <a id="admin-button" href="/user/admin">Panneau d'admin</a>
         </div>
     <?php } ?>
+
+
+
+    <?php
+    if (isset($_SESSION['userName']) && $_SESSION['userRole'] == 'Redac' || isset($_SESSION['userName']) && $_SESSION['userRole'] == 'Admin') { ?>
+        <div id="redac-buttons">
+            <a id="redac-button" href="/article/redac">Rédiger un Article</a>
+        </div>
+    <?php } ?>
+
 
 
         <div id="home-button">

@@ -47,7 +47,7 @@
 <?php endforeach; ?>
 </div>
 
-<ul>
+<ul id="pagination-nav">
     <?php 
     for ($i=1; $i<=$nbPages; $i++ ) {
     ?>
