@@ -74,6 +74,33 @@ class ArticleController {
         }
     }
 
+    public function edit($id) {
+        
+        $article = $this->articleRepository->selectBy($id);
+
+
+        if (isset($_POST['articleTitle'])) {
+        
+        
+            
+            $article->setTitle($_POST['articleTitle'])
+                    ->setUser($_POST['userName'])
+                    ->setContent($_POST['articleContent'])
+                    ->setCategory($_POST['articleCategory']);
+
+                    $this->articleRepository->edit($id, $article);
+
+                    echo 'Article bien modifié!';
+                    header("refresh:3; url=/user/adminarticles");
+                    exit; 
+
+        }
+
+        $title = 'Modifier';
+        require __DIR__ . '/../Views/users/admin/edit.php';
+
+    }
+
     
 
 

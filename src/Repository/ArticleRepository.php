@@ -76,4 +76,8 @@ class ArticleRepository {
         $this->dbManager->addArticle($article);
     }
 
+    public function edit($id, $updatedArticle) {
+        $this->dbManager->edit($id, $updatedArticle);
+    }
+
 }

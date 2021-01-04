@@ -5,6 +5,7 @@ use App\Repository\ArticleRepository;
 use App\Repository\UserRepository;
 use App\Services\DataBase\PDOManager;
 use App\Model\Article;
+use App\Model\User;
 
 
 
@@ -51,6 +52,7 @@ class UserController {
         }
         if ($modif   == 'adminusers') {
             $title = 'Modifier les Utilisateurs';
+            $users = $this->userRepository->selectAll(10,0);
             require __DIR__ . '/../Views/users/admin/users.php';
         }
         if ($modif   == 'adminpictures') {

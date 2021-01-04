@@ -18,12 +18,12 @@ if (isset($_POST['input-username'])) {
         <?php 
             if(isset($_SESSION['errorMessage'])) { ?>
 
-    <   p id="error-message">
+    <p id="error-message">
         <?php 
         echo $_SESSION['errorMessage'];
         unset($_SESSION['errorMessage']); 
         ?>
-    </>
+    </p>
     <?php } ?>
   
         

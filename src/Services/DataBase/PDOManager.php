@@ -105,6 +105,12 @@ class PDOManager {
         $request->execute([$article->getTitle(), $article->getContent(), $article->getUser(), $article->getCategory()]);
     }
 
+    public function edit($id, $updatedArticle) {
+        $request = $this->_connexion->prepare("UPDATE articles SET articleTitle = ?, articleContent = ?, userName = ?, categoryName = ? WHERE articleId = $id");
+        $request->execute([$updatedArticle->getTitle(), $updatedArticle->getContent(), $updatedArticle->getUser(), $updatedArticle->getCategory()]);
+    }
+    
+
 }
 
     ?>
