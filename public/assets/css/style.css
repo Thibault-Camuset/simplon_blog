@@ -287,6 +287,15 @@ body {
   margin-top: 50px;
 }
 
+.user-item {
+  margin-top: 10vh;
+  margin-left: 5vw;
+}
+
+.user-item p {
+  margin-left: 3vw;
+}
+
 /* Page Admin */
 
 .admin-option {
@@ -356,16 +365,16 @@ body {
   border: blue solid 1px;
 }
 
-#admin-unknown-option {
+#admin-categories-option {
   color: white;
-  background-color: yellow;
+  background-color: orange;
   border: white solid 1px;
 }
 
-#admin-unknown-option:hover {
-  color: gold;
+#admin-categories-option:hover {
+  color: orange;
   background-color: white;
-  border: gold solid 1px;
+  border: orange solid 1px;
 }
 
 #pagination-nav {

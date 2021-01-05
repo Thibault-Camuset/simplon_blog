@@ -3,10 +3,17 @@
 <div id="user-list">
 <?php foreach ($users as $user) : ?>
 
-    <div class="user-item">
+    <div class="user-item flex-row">
         
-        <h3><?php echo $user->getName(); ?></h3>
-        <p><?php echo $user->getRole(); ?></>
+
+    <form class="delete-form">
+            <input type="hidden" name="c" value="user"/>
+            <input type="hidden" name="a" value="delete"/>
+            <input type="hidden" name="id" value="<?php echo $user->getName(); ?>" />
+            <input type="submit" class="delete-button" value="X"/>
+        </form>
+        <p><?php echo $user->getName(); ?></p>
+        <p><?php echo $user->getRole()['name']; ?></p>
         <p><?php echo $user->getFirstName(); ?></p>
         <p><?php echo $user->getLastName(); ?></p>
         

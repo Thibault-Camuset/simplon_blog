@@ -66,6 +66,9 @@ switch ($controller) {
             case 'admin':
                 $userController->admin('');
                 break;
+            case 'delete':
+                $userController->delete($_GET['id']);
+                break;
             case 'adminarticles':
                 $userController->admin('adminarticles');
                 break;
@@ -74,6 +77,9 @@ switch ($controller) {
                 break;
             case 'adminpictures':
                 $userController->admin('adminpictures');
+                break;
+            case 'admincategories':
+                $userController->admin('admincategories');
                 break;
         }
         break;

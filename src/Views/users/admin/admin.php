@@ -22,8 +22,8 @@ if($_SESSION['userRole'] == 'Admin') { ?>
             Gestion des photos
         </a></p>
 
-        <p><a href="/user/adminunknown" class="admin-option" id="admin-unknown-option">
-            ???
+        <p><a href="/user/admincategories" class="admin-option" id="admin-categories-option">
+            Gestion des Catégories
         </a></p>
 
     </div>

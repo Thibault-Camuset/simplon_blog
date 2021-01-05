@@ -109,6 +109,17 @@ class PDOManager {
         $request = $this->_connexion->prepare("UPDATE articles SET articleTitle = ?, articleContent = ?, userName = ?, categoryName = ? WHERE articleId = $id");
         $request->execute([$updatedArticle->getTitle(), $updatedArticle->getContent(), $updatedArticle->getUser(), $updatedArticle->getCategory()]);
     }
+
+    public function fetchRoles() {
+        $request = $this->_connexion->prepare("SELECT * FROM roles");
+        $request->execute();
+        $results = [];
+        while ($row = $request->fetch(PDO::FETCH_ASSOC)) {
+            $results[] = $row;
+        }
+        return $results;
+    }
+
     
 
 }
